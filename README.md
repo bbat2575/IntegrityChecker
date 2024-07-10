@@ -108,7 +108,7 @@ The keys.c/keys.h handles two functions used to create node keys in merkle_tree_
 
 Unit testing is carried out using the cmocka framework and is followed by code coverage analysis using Gcov.  
 
-The source code for the cmocka testing files are stored in the testing/ directory along with the pkgs/ directory which contains the bpkg and data files used for testing.  
+The source code for the cmocka testing files are stored in the tests/ directory along with the pkgs/ directory which contains the bpkg and data files used for testing.  
 
 Test descriptions are located in test.sh in the main directory.  
 

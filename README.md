@@ -2,12 +2,12 @@
 
 The following program carries out integrity checks on data files through the use of bpkg files and merkle tree construction.
 
-# How To Use
+How To Use:
 
 1. Create a bpkg file for the data file being checked.  
 1. Run an integrity check.
 
-# 1. How To Create A BPKG File
+# How To Create A BPKG File
 
 Navigate to resources, run the binary executable and follow the prompts.
 ```bash
@@ -21,7 +21,7 @@ Example:
 ```
 NOTE: nchunks is always a multiple of 8 (due to hash size) and will round down accordingly.
 
-# 2. How To Run An Integrity Check
+# How To Run An Integrity Check
 
 Create the pkgmain binary executable.
 

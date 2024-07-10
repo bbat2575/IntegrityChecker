@@ -124,3 +124,9 @@ Simply execute the testing script.
 ```bash
 ./test.sh
 ```
+
+NOTE: Ensure execution privileges are available.
+
+```bash
+chmod +x test.sh
+```

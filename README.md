@@ -10,12 +10,14 @@ How To Use:
 # How To Create A BPKG File
 
 Navigate to resources, run the binary executable and follow the prompts.
+
 ```bash
 cd resources
 ./pkgmake
 ```
 
 Example:
+
 ```bash
 ./pkgmake pkgs/file1.data --nchunks 128 --output pkgs/file1-2.bpkg
 ```
@@ -36,6 +38,7 @@ To run an integrity check.
 ```
 
 Example:
+
 ```bash
 ./pkgmain resources/pkgs/file1.bpkg -integrity_check
 ```
@@ -61,11 +64,13 @@ To retrieve the minimum of hashes to represent the completion state. This simply
 ```
 
 To retrieve all descendant hashes given a certain ancestor hash. E.g. given the root node, all hashes are retrieved:
+
 ```bash
 ./pkgmain [bpkg-file] -hashes_of [hash]
 ```
 
 Example:
+
 ```bash
 ./pkgmain resources/pkgs/file1.bpkg -hashes_of 4e4dcf5cb1f3cfb33e5b93f760f79fc34a5b627454081f586685b808b972107e
 ```

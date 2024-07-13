@@ -1,13 +1,13 @@
-# Description
+# Integrity Checker
 
-The following program carries out integrity checks on data files through the use of bpkg files and merkle tree construction.
+**Carries out integrity checks on data files using bpkg files and merkle tree construction.**
 
 How To Use:
 
 1. Create a bpkg file for the data file being checked.  
 1. Run an integrity check.
 
-# How To Create A BPKG File
+## How To Create A BPKG File
 
 Navigate to resources, run the binary executable and follow the prompts.
 
@@ -23,7 +23,7 @@ Example:
 ```
 NOTE: nchunks is always a multiple of 8 (due to hash size) and will round down accordingly.
 
-# How To Run An Integrity Check
+## How To Run An Integrity Check
 
 Create the pkgmain binary executable.
 
@@ -43,7 +43,7 @@ Example:
 ./pkgmain resources/pkgs/file1.bpkg -integrity_check
 ```
 
-# Additional: Retrieving Hashes
+## Additional: Retrieving Hashes
 
 To retrieve all hashes of a bpkg file.
 
@@ -75,7 +75,7 @@ Example:
 ./pkgmain resources/pkgs/file1.bpkg -hashes_of 4e4dcf5cb1f3cfb33e5b93f760f79fc34a5b627454081f586685b808b972107e
 ```
 
-# Software Architecure
+## Software Architecure
 The entry point of the program is the pkgmain.c file which calls on pkgchk.c functions to carry out user requested tasks established via the command-line. The program focuses on retrieving information about bkpg files and the integrity of their corresponding data files.  
 
 Each time the pkgmain binary is executed with one of its designated flags, the bpkg_load() and bpkg_file_check() functions are first executed to retrieve the bpkg contents and store it in a bpkg object, and then to ensure that the corrseponding data file exists.  
@@ -97,7 +97,7 @@ The pkgmain flags and their corresponding tasks work like this:
 - -hashes_of [hash]
     - This flag, along with its required hash argument, calls on the bpkg_get_all_chunk_hashes_from_hash() function in pkgchk.c which in turn calls on merkle_tree_build(). The merkle tree object is then passed to the find_node() function to find the node that contains the hash that was passed as an argument. This node is then passed to the get_chunk_hashes_of_ancestor() function to populate a query object with all the hashes of its descendants in the merkle tree.
 
-# Modularity
+## Modularity
 The sha256.c/sha256.h handles the hashing of data chunks inside the merkle_tree_build() function.  
 
 The inputs.c/inputs.h handles several functions, three of which are used to read the contents of bpkg files in bpkg_load():  
@@ -109,7 +109,7 @@ The keys.c/keys.h handles two functions used to create node keys in merkle_tree_
 - The int_to_bin() function generates the keys of leaf nodes by converting the position of its chunk amongst the other chunks, represented by an integer, into a binary number.
 - The gen_hash_key() function generates the keys of non-leaf nodes by truncating the right-most bit of a child node binary key.
 
-# Testing
+## Testing
 
 Unit testing is carried out using the cmocka framework and is followed by code coverage analysis using Gcov.  
 
@@ -117,7 +117,7 @@ The source code for the cmocka testing files are stored in the tests/ directory 
 
 Test descriptions are located in test.sh in the main directory.  
 
-# How To Run Tests
+## How To Run Tests
 
 Simply execute the testing script.
 
